@@ -1,0 +1,116 @@
+var headers = {
+  'Authorization': 'Basic UHJvbWlsbzpxNCE1NkBaeSN4MiRHQg==',
+  'Cookie': 'JSESSIONID=2FDC53A7B8BE0FB3E9D18F548A7476F8; access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDY5ODE1MjksImF1dGhlbnRpY2F0ZWRfdXNlciI6eyJpZCI6IjJjOWZhOGY1OGExYmJlYzYwMThhMjBlMjdiNTQwMTI0IiwidXNlcm5hbWUiOiJ0ZXN0NDVAeW9wbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJjaGV0YW4gIiwibGFzdE5hbWUiOiJzIiwiZW1haWwiOiJ0ZXN0NDVAeW9wbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiI5MDAwMDAwMDQ1IiwibmFtZSI6ImNoZXRhbiAgcyIsInJvbGVzIjpbXSwic2VydmljZXMiOltdfSwidXNlcl9uYW1lIjoidGVzdDQ1QHlvcG1haWwuY29tITo6IVByb21pbG8iLCJqdGkiOiJiZjkyMmU1YS05MjBjLTQzMzAtOTdjZC0zYmYyYzBhZGNjMWIiLCJjbGllbnRfaWQiOiJQcm9taWxvIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXX0.YNBlsrukM664cA_gUlrDhFiI7gkcrZ50CEmvAVSwEus'
+};
+var request = http.Request('POST', Uri.parse('https://apiv2stg.promilo.com/user/oauth/token?username=test45@yopmail.com&password=8776f108e247ab1e2b323042c049c266407c81fbad41bde1e8dfc1bb66fd267e&grant_type=password'));
+
+request.headers.addAll(headers);
+
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+
+// ---------------------------------------------------------------------------
+
+{
+    "status": {
+        "code": 200,
+        "message": null
+    },
+    "response": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDY5ODE1MjksImF1dGhlbnRpY2F0ZWRfdXNlciI6eyJpZCI6IjJjOWZhOGY1OGExYmJlYzYwMThhMjBlMjdiNTQwMTI0IiwidXNlcm5hbWUiOiJ0ZXN0NDVAeW9wbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJjaGV0YW4gIiwibGFzdE5hbWUiOiJzIiwiZW1haWwiOiJ0ZXN0NDVAeW9wbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiI5MDAwMDAwMDQ1IiwibmFtZSI6ImNoZXRhbiAgcyIsInJvbGVzIjpbXSwic2VydmljZXMiOltdfSwidXNlcl9uYW1lIjoidGVzdDQ1QHlvcG1haWwuY29tITo6IVByb21pbG8iLCJqdGkiOiJiZjkyMmU1YS05MjBjLTQzMzAtOTdjZC0zYmYyYzBhZGNjMWIiLCJjbGllbnRfaWQiOiJQcm9taWxvIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXX0.YNBlsrukM664cA_gUlrDhFiI7gkcrZ50CEmvAVSwEus",
+        "token_type": "bearer",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ0ZXN0NDVAeW9wbWFpbC5jb20hOjohUHJvbWlsbyIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSIsInRydXN0Il0sImF0aSI6ImJmOTIyZTVhLTkyMGMtNDMzMC05N2NkLTNiZjJjMGFkY2MxYiIsImV4cCI6MTcxMjE2NTUyOSwiYXV0aGVudGljYXRlZF91c2VyIjp7ImlkIjoiMmM5ZmE4ZjU4YTFiYmVjNjAxOGEyMGUyN2I1NDAxMjQiLCJ1c2VybmFtZSI6InRlc3Q0NUB5b3BtYWlsLmNvbSIsImZpcnN0TmFtZSI6ImNoZXRhbiAiLCJsYXN0TmFtZSI6InMiLCJlbWFpbCI6InRlc3Q0NUB5b3BtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjkwMDAwMDAwNDUiLCJuYW1lIjoiY2hldGFuICBzIiwicm9sZXMiOltdLCJzZXJ2aWNlcyI6W119LCJqdGkiOiIzNzk4NjMxMi1mZDNiLTQ1MDItODY0ZS1kM2UwN2FiYjU4NDYiLCJjbGllbnRfaWQiOiJQcm9taWxvIn0.gVx9a3JbDp01L5_gtEY6xLE2R5HK6pfHny-3jcSi7TE",
+        "expires_in": 2591999,
+        "scope": "read write trust",
+        "user_role": [],
+        "tenant_name": "Promilo",
+        "user_type": "USER",
+        "user_id": "2c9fa8f58a1bbec6018a20e27b540124",
+        "user_name": "chetan  s"
+    }
+}
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
+
+class AuthProvider with ChangeNotifier {
+  bool _loading = false;
+  bool get loading => _loading;
+
+  setLoading(bool value) {
+    _loading = value;
+    notifyListeners();
+  }
+
+  // String hashPassword(String password) {
+  //   // Create a SHA-256 hash
+  //   var bytes = utf8.encode(password);
+  //   var digest = sha256.convert(bytes);
+
+  //   // Convert the hash to a hexadecimal string
+  //   return digest.toString();
+  // }
+
+// void main() {
+//   // Example usage
+//   String userEnteredPassword = "user123";
+//   String hashedPassword = hashPassword(userEnteredPassword);
+
+//   // Now you can store or compare the hashedPassword as needed
+//   print("Original Password: $userEnteredPassword");
+//   print("Hashed Password: $hashedPassword");
+// }
+
+  void login_user(String email, String password) async {
+    // String hashedPassword = hashPassword(password);
+
+    print(email);
+    print(password);
+    // print(hashedPassword);
+
+    setLoading(true);
+    try {
+      var headers = {
+        'Authorization': 'Basic UHJvbWlsbzpxNCE1NkBaeSN4MiRHQg==',
+        'Cookie':
+            'JSESSIONID=2FDC53A7B8BE0FB3E9D18F548A7476F8; access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDY5ODE1MjksImF1dGhlbnRpY2F0ZWRfdXNlciI6eyJpZCI6IjJjOWZhOGY1OGExYmJlYzYwMThhMjBlMjdiNTQwMTI0IiwidXNlcm5hbWUiOiJ0ZXN0NDVAeW9wbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJjaGV0YW4gIiwibGFzdE5hbWUiOiJzIiwiZW1haWwiOiJ0ZXN0NDVAeW9wbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiI5MDAwMDAwMDQ1IiwibmFtZSI6ImNoZXRhbiAgcyIsInJvbGVzIjpbXSwic2VydmljZXMiOltdfSwidXNlcl9uYW1lIjoidGVzdDQ1QHlvcG1haWwuY29tITo6IVByb21pbG8iLCJqdGkiOiJiZjkyMmU1YS05MjBjLTQzMzAtOTdjZC0zYmYyYzBhZGNjMWIiLCJjbGllbnRfaWQiOiJQcm9taWxvIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXX0.YNBlsrukM664cA_gUlrDhFiI7gkcrZ50CEmvAVSwEus'
+      };
+      var request = http.Request(
+        'POST',
+        Uri.parse(
+            'https://apiv2stg.promilo.com/user/oauth/token?username=$email.com&password=$password&grant_type=password'),
+        // 'https://apiv2stg.promilo.com/user/oauth/token?username=$email.com&password=$hashedPassword&grant_type=password'),
+      );
+
+      request.headers.addAll(headers);
+
+      http.StreamedResponse response = await request.send();
+
+      if (response.statusCode == 200) {
+        print(await response.stream.bytesToString());
+        print('Login Successfull');
+        setLoading(false);
+      } else {
+        print(response.reasonPhrase);
+        print('Login Failed');
+        setLoading(false);
+      }
+    } catch (e) {
+      print(e.toString());
+      setLoading(false);
+    }
+  }
+}
